@@ -71,6 +71,9 @@ void control_system_task(void *arg)
     TickType_t last_wake = xTaskGetTickCount();
     while (!safety_system_is_shutting_down())
     {
+        // Get the angles from both encoders
+        encoder_driver_get_angles(shaft_angles);
+        
         // Add telemetry samples to the UDP interface
         udp_interface_add_control_sample(shaft_angles[0], shaft_angles[1]);
 

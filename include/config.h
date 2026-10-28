@@ -23,7 +23,7 @@
 #define I2C_MASTER_SDA_IO 32 /**< GPIO pin for I2C master SDA */
 
 // UPD interface configuration constants
-#define UPD_INTERFACE_HOSTNAME "robot_1"     /**< Hostname for the ESP32 on the network */
+#define UPD_INTERFACE_HOSTNAME "robot_9876"     /**< Hostname for the ESP32 on the network */
 #define UPD_INTERFACE_UDP_PORT 3333          /**< UDP port for communication */
 #define UPD_INTERFACE_TASK_PERIOD_MS 20      /**< Network task period [ms] */
 #define UPD_INTERFACE_TELEMETRY_QUEUE_LEN 64 /**< Length of the telemetry queue [-] */
