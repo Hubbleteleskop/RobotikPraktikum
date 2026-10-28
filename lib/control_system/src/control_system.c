@@ -57,6 +57,18 @@ esp_err_t control_system_init(const control_system_config_t *config)
     ESP_LOGI(TAG, "Control system initialized.");
     return ESP_OK;
 }
+    
+
+//Hilfsfunktion für die Dreiecksfunktion / Periodische Dreiecksfunktion (normiert auf Periode 1, Wertebereich 0 bis 1)
+static float triangle_function(float x)
+{
+    float wrapped = fmodf(x, 1.0f); // Wrap x to the range [0, 1)
+    if (wrapped < 0.0f)
+    {
+        wrapped += 1.0f; // Ensure wrapped is non-negative
+    }
+    return 2.0f * fabsf(wrapped - 0.5f); // Triangle wave formula
+}
 
 void control_system_task(void *arg)
 {
@@ -68,14 +80,29 @@ void control_system_task(void *arg)
 
     // Main control loop
     float shaft_angles[2] = {0.0f, 0.0f};
+    float voltages[2] = {0.0f, 0.0f};
+    float t = 0.0f; // Time variable for control calculations
+    float dt = (float)cfg.task_period_ms / 1000.0f; // Zeitschritt pro Regeltakt (z.b. 0.1s bei 100ms)
     TickType_t last_wake = xTaskGetTickCount();
     while (!safety_system_is_shutting_down())
     {
+        // Motorspannungen berechnen
+        // U_L = sin(0.2*pi*t)
+        voltages[0] = sinf(0.2f * (float)M_PI * t);
+
+        // U_R = 2*triangle(0.5*t) - 1
+        voltages[1] = 2.0f * triangle_function(0.5f * t) - 1.0f;
+
+        motor_driver_set_voltage(voltages);
+
         // Get the angles from both encoders
         encoder_driver_get_angles(shaft_angles);
         
         // Add telemetry samples to the UDP interface
         udp_interface_add_control_sample(shaft_angles[0], shaft_angles[1]);
+        
+        // Update time variable for the next iteration
+        t += dt;
 
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
