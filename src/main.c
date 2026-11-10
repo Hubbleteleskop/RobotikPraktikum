@@ -63,6 +63,25 @@ void app_main()
     };
     ESP_ERROR_CHECK(udp_interface_init(&udp_config));
 
+    static const motor_model_params_t motor_params_array[MOTOR_MODEL_NR_OF_MOTORS] = {
+        {
+            .transmission_ratio = MOTOR_L_TRANSMISSION_RATIO,
+            .armature_resistance = MOTOR_L_ARMATURE_RESISTANCE,
+            .motor_constant = MOTOR_L_MOTOR_CONSTANT,
+            .max_torque_intermittent = MOTOR_L_MAX_TORQUE_INTERMITTENT,
+            .max_velocity = MOTOR_L_MAX_VELOCITY,
+            .invert_direction = MOTOR_L_INVERT_DIRECTION,
+        },
+        {
+            .transmission_ratio = MOTOR_R_TRANSMISSION_RATIO,
+            .armature_resistance = MOTOR_R_ARMATURE_RESISTANCE,
+            .motor_constant = MOTOR_R_MOTOR_CONSTANT,
+            .max_torque_intermittent = MOTOR_R_MAX_TORQUE_INTERMITTENT,
+            .max_velocity = MOTOR_R_MAX_VELOCITY,
+            .invert_direction = MOTOR_R_INVERT_DIRECTION,
+        }
+    };
+
     const control_system_config_t control_config = {
         .task_period_ms = CONTROL_SYSTEM_TASK_PERIOD_MS,
         .encoder_config = {
@@ -74,6 +93,11 @@ void app_main()
             .min_bus_voltage = MOTOR_DRIVER_MIN_BUS_VOLTAGE,
             .motor_A_free_spin = MOTOR_DRIVER_MOTOR_A_FREE_SPIN,
             .motor_B_free_spin = MOTOR_DRIVER_MOTOR_B_FREE_SPIN,
+        },
+        .motor_model_config = {
+            .dt = (float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f,
+            .params = motor_params_array,
+            .nr_of_motors = MOTOR_MODEL_NR_OF_MOTORS,
         }
     };
     ESP_ERROR_CHECK(control_system_init(&control_config));

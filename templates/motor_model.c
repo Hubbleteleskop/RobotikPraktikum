@@ -67,15 +67,15 @@ void motor_model_cleanup(void)
 
 void motor_model_calc_q(const float *shaft_angles, float *q)
 {
-    /* TO DO */
+    // To do
 }
 
 void motor_model_calc_qd(const float *q, float *qd)
 {
-    /* TO DO */
+    // To do
 }
 
 void motor_model_calc_voltage(const float *Q, const float *qd, float *U)
 {
-    /* TO DO */
+    // To do
 }

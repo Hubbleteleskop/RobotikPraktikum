@@ -38,6 +38,22 @@
 #define MOTOR_DRIVER_MOTOR_A_FREE_SPIN false            /**< Motor A free spin configuration */
 #define MOTOR_DRIVER_MOTOR_B_FREE_SPIN false            /**< Motor B free spin configuration */
 
+// Motor model configuration
+#define MOTOR_MODEL_NR_OF_MOTORS 2 /**< Number of motors in the system */
+#define MOTOR_L_TRANSMISSION_RATIO (3441.0f / 104.0f) /**< Transmission ratio for the left motor */ 
+#define MOTOR_R_TRANSMISSION_RATIO (3441.0f / 104.0f) /**< Transmission ratio for the right motor */
+#define MOTOR_L_ARMATURE_RESISTANCE 8.0f /**< Armature resistance for the left motor [Ohm] */
+#define MOTOR_R_ARMATURE_RESISTANCE 8.0f /**< Armature resistance for the right motor [Ohm] */
+#define MOTOR_L_MOTOR_CONSTANT 0.00844f /**< Motor constant for the left motor [Nm/A] */
+#define MOTOR_R_MOTOR_CONSTANT 0.00844f /**< Motor constant for the right motor [Nm/A] */
+#define MOTOR_L_MAX_TORQUE_INTERMITTENT 0.1f /**< Maximum intermittent torque for the left motor [Nm] */
+#define MOTOR_R_MAX_TORQUE_INTERMITTENT 0.1f /**< Maximum intermittent torque for the right motor [Nm] */
+#define MOTOR_L_MAX_VELOCITY (6700.0f/60.0f * 2.0f * 3.14159f) /**< Maximum velocity for the left motor [rad/s] */
+#define MOTOR_R_MAX_VELOCITY (6700.0f/60.0f * 2.0f * 3.14159f) /**< Maximum velocity for the right motor [rad/s] */
+#define MOTOR_L_INVERT_DIRECTION true /**< Invert direction for the left motor */
+#define MOTOR_R_INVERT_DIRECTION false /**< Invert direction for the right motor */
+
+
 // Control system configuration constants
 #define CONTROL_SYSTEM_TASK_PERIOD_MS 5                                               /**< Control system task period [ms] */
 #define CONTROL_SYSTEM_TASK_PERIOD_S ((float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f) /**< Control system task period [s] */

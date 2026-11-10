@@ -51,6 +51,7 @@ esp_err_t control_system_init(const control_system_config_t *config)
     // Initialize all control system components
     ESP_ERROR_CHECK(encoder_driver_init(&cfg.encoder_config));
     ESP_ERROR_CHECK(motor_driver_init(&cfg.motor_driver_config));
+    ESP_ERROR_CHECK(motor_model_init(&cfg.motor_model_config));
 
     // Set the control system initialized bit in the event group
     xEventGroupSetBits(control_system_event_group, CONTROL_SYSTEM_INITIALIZED_BIT);
@@ -80,12 +81,17 @@ void control_system_task(void *arg)
 
     // Main control loop
     float shaft_angles[2] = {0.0f, 0.0f};
-    float voltages[2] = {0.0f, 0.0f};
-    float t = 0.0f; // Time variable for control calculations
-    float dt = (float)cfg.task_period_ms / 1000.0f; // Zeitschritt pro Regeltakt (z.b. 0.1s bei 100ms)
+    //float voltages[2] = {0.0f, 0.0f};
+    //float t = 0.0f; // Time variable for control calculations
+    //float dt = (float)cfg.task_period_ms / 1000.0f; // Zeitschritt pro Regeltakt (z.b. 0.1s bei 100ms)
+    float q[2] = {0.0f, 0.0f}; // Gelenkpositionen
+    float qd[2] = {0.0f, 0.0f}; // Gelenkgeschwindigkeiten
+    float U[2] = {0.0f, 0.0f}; // Motorspannungen
+    float Q[2] = {0.005f, 0.005f}; // Soll Drehmoment
     TickType_t last_wake = xTaskGetTickCount();
     while (!safety_system_is_shutting_down())
     {
+        /* Praktikum 1
         // Motorspannungen berechnen
         // U_L = sin(0.2*pi*t)
         voltages[0] = sinf(0.2f * (float)M_PI * t);
@@ -103,6 +109,17 @@ void control_system_task(void *arg)
         
         // Update time variable for the next iteration
         t += dt;
+        */
+
+        encoder_driver_get_angles(shaft_angles);
+
+        motor_model_calc_q(shaft_angles, q);
+        motor_model_calc_qd(q, qd);
+        motor_model_calc_voltage(Q, qd, U);
+        motor_driver_set_voltage(U);
+
+        udp_interface_add_control_sample(q[0], q[1]);
+        ESP_LOGI(TAG, "q = [%.3f, %.3f] rad", q[0], q[1]);
 
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));

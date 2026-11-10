@@ -27,6 +27,7 @@
 #include <stdint.h>
 #include "encoder_driver.h"
 #include "motor_driver.h"
+#include "motor_model.h"
 /* Add other necessary includes here */
 
 /**
@@ -37,6 +38,7 @@ typedef struct
     uint32_t task_period_ms;                   /**< Control system task period in milliseconds */
     encoder_driver_config_t encoder_config;    /**< Configuration for the encoder driver */
     motor_driver_config_t motor_driver_config; /**< Configuration for the motor driver */
+    motor_model_config_t motor_model_config;   /**< Configuration for the motor model */
     /* Add other configuration structures here */
 } control_system_config_t;
 
