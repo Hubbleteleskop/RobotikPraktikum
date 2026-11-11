@@ -128,6 +128,8 @@ void control_system_task(void *arg)
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
         */
+
+        /* Praktikum 2 Aufgabe 2
         encoder_driver_get_angles(shaft_angles);
 
         motor_model_calc_q(shaft_angles, q);
@@ -145,7 +147,25 @@ void control_system_task(void *arg)
 
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
+        */
 
+        encoder_driver_get_angles(shaft_angles);
+
+        motor_model_calc_q(shaft_angles, q);
+        motor_model_calc_qd(q, qd);
+
+        q_soll[0] = q[1];
+        q_soll[1] = q[0];
+
+        pd_controller_calc_Q(q, q_soll, Q);
+        motor_model_calc_voltage(Q, qd, U);
+        motor_driver_set_voltage(U);
+
+        udp_interface_add_control_sample(q[0], q[1]);
+        ESP_LOGI(TAG, "Q = [%.3f, %.3f] Nm", Q[0], Q[1]);
+
+        // Wait for the next cycle
+        xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
 
     }
 
