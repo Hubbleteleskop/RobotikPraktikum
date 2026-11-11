@@ -1,14 +1,22 @@
 <map id="lib/control_system/include/control_system.h" name="lib/control_system/include/control_system.h">
-<area shape="rect" id="Node000001" title="Control system header file." alt="" coords="67,5,256,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="47,167,129,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,48,41,67,25,79,13,95,9,112,17,128,33,144,53,158,50,162,30,148,13,132,4,112,8,92,22,76,38,62,74,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="249,167,319,192"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,43,280,62,296,76,309,92,315,108,314,125,302,155,297,154,309,124,309,109,304,95,292,79,277,67,241,48"/>
-<area shape="rect" id="Node000004" href="$encoder__driver_8h.html" title="Header file for the encoder driver module." alt="" coords="23,93,153,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,47,110,85,106,81,142,44"/>
-<area shape="rect" id="Node000005" href="$motor__driver_8h.html" title="Header file for the motor driver module. This module provides functions to initialize and control the..." alt="" coords="177,93,295,119"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="181,44,217,81,213,85,177,47"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="91,119,91,153,85,153,85,119"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="213,121,126,163,123,158,211,116"/>
-<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="246,118,271,154,266,157,242,121"/>
+<area shape="rect" id="Node000001" title="Control system header file." alt="" coords="216,5,405,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="200,174,280,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,40,156,50,97,63,48,79,30,89,18,100,9,119,13,134,28,148,53,158,118,173,187,183,182,184,117,179,51,163,25,152,8,137,3,118,14,96,27,85,46,74,96,58,155,45,218,37"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="418,174,488,201"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="405,37,463,46,520,59,567,75,585,85,598,96,605,111,604,125,596,138,582,148,545,166,504,178,503,173,543,161,579,144,592,134,599,123,600,112,594,100,582,89,565,80,519,64,462,51,405,42"/>
+<area shape="rect" id="Node000004" href="$encoder__driver_8h.html" title="Header file for the encoder driver module." alt="" coords="28,98,158,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,53,143,95,141,90,255,49"/>
+<area shape="rect" id="Node000005" href="$motor__driver_8h.html" title="Header file for the motor driver module. This module provides functions to initialize and control the..." alt="" coords="182,98,298,126"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="294,49,263,88,259,84,290,52"/>
+<area shape="rect" id="Node000006" href="$lib_2control__system_2include_2motor__model_8h.html" title="Motor model header file." alt="" coords="322,98,443,126"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="330,48,363,86,358,86,329,53"/>
+<area shape="rect" id="Node000007" href="$lib_2control__system_2include_2pd__controller_8h.html" title="PD position controller header file." alt="" coords="466,98,584,126"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="368,48,479,92,474,92,367,53"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="120,124,203,165,198,168,119,129"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="242,124,242,159,238,157,238,128"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="278,124,406,169,400,169,277,129"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="360,126,279,169,278,164,354,127"/>
+<area shape="poly" id="edge10_Node000006_Node000003" title=" " alt="" coords="396,124,433,163,428,162,394,129"/>
+<area shape="poly" id="edge12_Node000007_Node000002" title=" " alt="" coords="477,126,295,175,294,169,471,126"/>
+<area shape="poly" id="edge13_Node000007_Node000003" title=" " alt="" coords="515,125,478,165,475,160,510,127"/>
 </map>

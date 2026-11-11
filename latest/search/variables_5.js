@@ -1,7 +1,7 @@
 var searchData=
 [
   ['e_0',['e',['../pi__controller_8c.html#adb80a5d1d14be1cba6929b6b347ced40',1,'pi_controller.c']]],
-  ['e_5fprev_1',['e_prev',['../pd__controller_8c.html#a3f3983218d7fd6e75177af7008acfe05',1,'pd_controller.c']]],
+  ['e_5fprev_1',['e_prev',['../lib_2control__system_2src_2pd__controller_8c.html#a3f3983218d7fd6e75177af7008acfe05',1,'e_prev:&#160;pd_controller.c'],['../templates_2pd__controller_8c.html#a3f3983218d7fd6e75177af7008acfe05',1,'e_prev:&#160;pd_controller.c']]],
   ['enc_5fa_5fpos_2',['enc_A_pos',['../structtelemetry__control__sample__t.html#a37a1deb84c06e3f22658f1cfe901dc03',1,'telemetry_control_sample_t']]],
   ['enc_5fa_5fpulses_5fper_5frevolution_3',['enc_A_pulses_per_revolution',['../structencoder__driver__config__t.html#a827bf6b9189ad74ad588151878bd58c2',1,'encoder_driver_config_t']]],
   ['enc_5fb_5fpos_4',['enc_B_pos',['../structtelemetry__control__sample__t.html#ad1e80aa839c717b7a312e89f46d88163',1,'telemetry_control_sample_t']]],

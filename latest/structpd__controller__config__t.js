@@ -4,5 +4,5 @@ var structpd__controller__config__t =
     [ "dt", "structpd__controller__config__t.html#a778e38aa889751afffa2dea6b803e67a", null ],
     [ "kd", "structpd__controller__config__t.html#ae7a5c6018507bb1361fcca170e069b9c", null ],
     [ "kp", "structpd__controller__config__t.html#a1f7add0f84d583bc2eceb290d6c4cc06", null ],
-    [ "M", "structpd__controller__config__t.html#a4560f8cccc1a1b939bd318fe04184ade", null ]
+    [ "M", "structpd__controller__config__t.html#ab9d7cf63bf00281ec233f463fd4daf52", null ]
 ];
