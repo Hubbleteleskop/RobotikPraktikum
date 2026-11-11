@@ -53,10 +53,21 @@
 #define MOTOR_L_INVERT_DIRECTION true /**< Invert direction for the left motor */
 #define MOTOR_R_INVERT_DIRECTION false /**< Invert direction for the right motor */
 
+// PD controller configuration constants
+#define MOTOR_J 0.000000068f /**< Motor inertia [kg*m^2] */
+#define MOTOR_J_RED (MOTOR_J * (MOTOR_L_TRANSMISSION_RATIO * MOTOR_L_TRANSMISSION_RATIO)) /**< Reduced motor inertia [kg*m^2] */
+
+#define PD_CONTROLLER_D 0.7f
+#define PD_CONTROLLER_OMEGA_0 (CONTROL_SYSTEM_TASK_FREQUENCY_HZ/(4.6f*PD_CONTROLLER_D))
+#define PD_CONTROLLER_DT ((float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f)
+#define PD_CONTROLLER_KP (PD_CONTROLLER_OMEGA_0 * PD_CONTROLLER_OMEGA_0)
+#define PD_CONTROLLER_KD (2.0f * PD_CONTROLLER_D * PD_CONTROLLER_OMEGA_0) /**< Derivative gain for the PD controller [1/s] */
+#define PD_CONTROLLER_DIM 2 /**< Dimension of the input signal for the PD controller (e.g., 1 for scalar, 2 for vector) */
 
 // Control system configuration constants
 #define CONTROL_SYSTEM_TASK_PERIOD_MS 5                                               /**< Control system task period [ms] */
 #define CONTROL_SYSTEM_TASK_PERIOD_S ((float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f) /**< Control system task period [s] */
+#define CONTROL_SYSTEM_TASK_FREQUENCY_HZ (1.0f / (float)CONTROL_SYSTEM_TASK_PERIOD_S) /**< Control system task frequency [Hz] */
 
 // Sequencer configuration constants
 #define SEQUENCER_TASK_PERIOD_MS 100 /**< Sequencer task period [ms] */

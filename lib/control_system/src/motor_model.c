@@ -104,6 +104,6 @@ void motor_model_calc_voltage(const float *Q, const float *qd, float *U)
             direction = 1.0f;
         }
         // U = R*I + k_M*omega, I=Q/k_M, omega=qd
-        U[i] = direction * (cfg.params[i].armature_resistance * (Q[i] / cfg.params[i].motor_constant) + cfg.params[i].motor_constant * qd[i]);
+        U[i] = direction * (cfg.params[i].armature_resistance * (Q[i] / (cfg.params[i].motor_constant*cfg.params[i].transmission_ratio)) + cfg.params[i].motor_constant * qd[i]*cfg.params[i].transmission_ratio);
     }
 }

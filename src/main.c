@@ -82,6 +82,12 @@ void app_main()
         }
     };
 
+    static const float PD_CONTROLLER_M[PD_CONTROLLER_DIM * PD_CONTROLLER_DIM] = {
+        MOTOR_J_RED, 0.0f,
+        0.0f, MOTOR_J_RED
+    };
+    
+
     const control_system_config_t control_config = {
         .task_period_ms = CONTROL_SYSTEM_TASK_PERIOD_MS,
         .encoder_config = {
@@ -98,6 +104,13 @@ void app_main()
             .dt = (float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f,
             .params = motor_params_array,
             .nr_of_motors = MOTOR_MODEL_NR_OF_MOTORS,
+        },
+        .pd_controller_config = {
+            .dt = PD_CONTROLLER_DT,
+            .kp = PD_CONTROLLER_KP,
+            .kd = PD_CONTROLLER_KD,
+            .M = PD_CONTROLLER_M,
+            .dim = PD_CONTROLLER_DIM,
         }
     };
     ESP_ERROR_CHECK(control_system_init(&control_config));

@@ -28,6 +28,8 @@
 #include "encoder_driver.h"
 #include "motor_driver.h"
 #include "motor_model.h"
+#include "pd_controller.h"
+
 /* Add other necessary includes here */
 
 /**
@@ -39,6 +41,7 @@ typedef struct
     encoder_driver_config_t encoder_config;    /**< Configuration for the encoder driver */
     motor_driver_config_t motor_driver_config; /**< Configuration for the motor driver */
     motor_model_config_t motor_model_config;   /**< Configuration for the motor model */
+    pd_controller_config_t pd_controller_config; /**< Configuration for the PD controller */
     /* Add other configuration structures here */
 } control_system_config_t;
 
