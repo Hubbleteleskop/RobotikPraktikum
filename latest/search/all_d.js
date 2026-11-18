@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['m_0',['M',['../structpd__controller__config__t.html#ab9d7cf63bf00281ec233f463fd4daf52',1,'pd_controller_config_t::M'],['../structpi__controller__config__t.html#a4560f8cccc1a1b939bd318fe04184ade',1,'pi_controller_config_t::M']]],
+  ['m_0',['M',['../structpd__controller__config__t.html#ab9d7cf63bf00281ec233f463fd4daf52',1,'pd_controller_config_t::M'],['../structpi__controller__config__t.html#ab9d7cf63bf00281ec233f463fd4daf52',1,'pi_controller_config_t::M']]],
   ['magic_1',['magic',['../structtelemetry__packet__t.html#a0be2c4e17f1375a30dc9fdd59122e7eb',1,'telemetry_packet_t::magic'],['../structcmd__header__t.html#a0be2c4e17f1375a30dc9fdd59122e7eb',1,'cmd_header_t::magic']]],
   ['main_2',['main',['../namespaceapp.html#a51af30a60f9f02777c6396b8247e356f',1,'app']]],
   ['main_2ec_3',['main.c',['../main_8c.html',1,'']]],

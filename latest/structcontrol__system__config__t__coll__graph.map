@@ -1,13 +1,15 @@
 <map id="control_system_config_t" name="control_system_config_t">
-<area shape="rect" id="Node000001" title="Control system configuration structure." alt="" coords="652,91,831,119"/>
-<area shape="rect" id="Node000002" href="$structencoder__driver__config__t.html" title="Configuration structure for the encoder driver." alt="" coords="287,7,463,35"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="478,26,553,36,629,53,675,70,716,91,711,91,673,75,627,58,552,42,478,31"/>
-<area shape="rect" id="Node000003" href="$structmotor__driver__config__t.html" title="Motor driver configuration structure." alt="" coords="293,63,456,91"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="472,82,654,98,649,99,472,87"/>
-<area shape="rect" id="Node000004" href="$structmotor__model__config__t.html" title="Motor configuration structure." alt="" coords="292,119,458,147"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="473,131,549,129,628,123,670,120,675,119,628,129,549,135,474,137"/>
-<area shape="rect" id="Node000005" href="$structmotor__model__params__t.html" title="Motor parameters structure." alt="" coords="5,119,182,147"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="197,130,294,132,289,134,197,136"/>
-<area shape="rect" id="Node000006" href="$structpd__controller__config__t.html" title="PD position controller configuration structure." alt="" coords="293,175,457,203"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="473,185,549,178,627,161,676,141,716,120,721,119,679,145,629,166,550,183,473,190"/>
+<area shape="rect" id="Node000001" title="Control system configuration structure." alt="" coords="652,123,831,151"/>
+<area shape="rect" id="Node000002" href="$structencoder__driver__config__t.html" title="Configuration structure for the encoder driver." alt="" coords="287,11,463,39"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="478,27,553,38,629,59,684,89,727,123,722,122,681,93,627,64,552,43,478,32"/>
+<area shape="rect" id="Node000003" href="$structmotor__driver__config__t.html" title="Motor driver configuration structure." alt="" coords="293,67,456,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="472,87,628,108,688,123,683,123,628,113,472,92"/>
+<area shape="rect" id="Node000004" href="$structmotor__model__config__t.html" title="Motor configuration structure." alt="" coords="292,123,458,151"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="473,135,654,137,649,138,474,140"/>
+<area shape="rect" id="Node000005" href="$structmotor__model__params__t.html" title="Motor parameters structure." alt="" coords="5,123,182,151"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="197,135,294,136,289,138,198,140"/>
+<area shape="rect" id="Node000006" href="$structpd__controller__config__t.html" title="PD position controller configuration structure." alt="" coords="293,179,457,207"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="472,185,548,177,627,165,691,152,696,151,629,170,549,182,472,190"/>
+<area shape="rect" id="Node000007" href="$structpi__controller__config__t.html" title="PI velocity controller configuration structure." alt="" coords="295,235,455,263"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="470,245,548,235,588,226,627,213,655,200,682,183,723,153,727,151,685,187,658,204,629,218,590,231,549,240,470,250"/>
 </map>

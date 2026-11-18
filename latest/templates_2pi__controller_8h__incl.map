@@ -1,0 +1,7 @@
+<map id="templates/pi_controller.h" name="templates/pi_controller.h">
+<area shape="rect" id="Node000001" title="PI velocity controller header file." alt="" coords="5,5,189,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,81,88,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,32,67,70,63,66,86,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="112,81,183,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,31,133,68,127,68,105,36"/>
+</map>

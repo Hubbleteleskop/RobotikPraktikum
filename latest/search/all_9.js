@@ -9,7 +9,7 @@ var searchData=
   ['index_6',['index',['../namespaceapp.html#a149eb92716c1084a935e04a8d95f7347',1,'app']]],
   ['integral_7',['integral',['../common__math_8h.html#a35becaba1dcebe149755174d86a9ccdc',1,'integral(float *x, const float *xd, const float *dt, uint8_t dim):&#160;common_math.c'],['../common__math_8c.html#a35becaba1dcebe149755174d86a9ccdc',1,'integral(float *x, const float *xd, const float *dt, uint8_t dim):&#160;common_math.c']]],
   ['integral_5flimit_8',['integral_limit',['../structpi__controller__config__t.html#a11a1beae188ca309e197e1abd2dd81f8',1,'pi_controller_config_t']]],
-  ['integrator_5fenabled_5fbit_9',['INTEGRATOR_ENABLED_BIT',['../pi__controller_8c.html#a6a8f4a9950eabcfcbf25119b6cbd971c',1,'pi_controller.c']]],
+  ['integrator_5fenabled_5fbit_9',['INTEGRATOR_ENABLED_BIT',['../lib_2control__system_2src_2pi__controller_8c.html#a6a8f4a9950eabcfcbf25119b6cbd971c',1,'INTEGRATOR_ENABLED_BIT:&#160;pi_controller.c'],['../templates_2pi__controller_8c.html#a6a8f4a9950eabcfcbf25119b6cbd971c',1,'INTEGRATOR_ENABLED_BIT:&#160;pi_controller.c']]],
   ['interface_10',['Host side ESP32 UDP telemetry/command interface',['../dir_7fb88deff7a1179c2129339c39b4c556.html#autotoc_md0',1,'']]],
   ['invert_5fdirection_11',['invert_direction',['../structmotor__model__params__t.html#a945b25987bbb665b1bec893158654455',1,'motor_model_params_t']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['m_0',['M',['../structpd__controller__config__t.html#ab9d7cf63bf00281ec233f463fd4daf52',1,'pd_controller_config_t::M'],['../structpi__controller__config__t.html#a4560f8cccc1a1b939bd318fe04184ade',1,'pi_controller_config_t::M']]],
+  ['m_0',['M',['../structpd__controller__config__t.html#ab9d7cf63bf00281ec233f463fd4daf52',1,'pd_controller_config_t::M'],['../structpi__controller__config__t.html#ab9d7cf63bf00281ec233f463fd4daf52',1,'pi_controller_config_t::M']]],
   ['magic_1',['magic',['../structtelemetry__packet__t.html#a0be2c4e17f1375a30dc9fdd59122e7eb',1,'telemetry_packet_t::magic'],['../structcmd__header__t.html#a0be2c4e17f1375a30dc9fdd59122e7eb',1,'cmd_header_t::magic']]],
   ['max_5fangular_5fvelocity_2',['max_angular_velocity',['../structposition__controller__config__t.html#a49d2b2d3b0dce54995a4e9070f5e7605',1,'position_controller_config_t']]],
   ['max_5flinear_5fvelocity_5fx_3',['max_linear_velocity_x',['../structposition__controller__config__t.html#aa403d262b4107dab7b348eafd49435a1',1,'position_controller_config_t']]],

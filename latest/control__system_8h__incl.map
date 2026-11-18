@@ -1,22 +1,26 @@
 <map id="lib/control_system/include/control_system.h" name="lib/control_system/include/control_system.h">
-<area shape="rect" id="Node000001" title="Control system header file." alt="" coords="216,5,405,50"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="200,174,280,201"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,40,156,50,97,63,48,79,30,89,18,100,9,119,13,134,28,148,53,158,118,173,187,183,182,184,117,179,51,163,25,152,8,137,3,118,14,96,27,85,46,74,96,58,155,45,218,37"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="418,174,488,201"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="405,37,463,46,520,59,567,75,585,85,598,96,605,111,604,125,596,138,582,148,545,166,504,178,503,173,543,161,579,144,592,134,599,123,600,112,594,100,582,89,565,80,519,64,462,51,405,42"/>
-<area shape="rect" id="Node000004" href="$encoder__driver_8h.html" title="Header file for the encoder driver module." alt="" coords="28,98,158,126"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,53,143,95,141,90,255,49"/>
-<area shape="rect" id="Node000005" href="$motor__driver_8h.html" title="Header file for the motor driver module. This module provides functions to initialize and control the..." alt="" coords="182,98,298,126"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="294,49,263,88,259,84,290,52"/>
-<area shape="rect" id="Node000006" href="$lib_2control__system_2include_2motor__model_8h.html" title="Motor model header file." alt="" coords="322,98,443,126"/>
-<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="330,48,363,86,358,86,329,53"/>
-<area shape="rect" id="Node000007" href="$lib_2control__system_2include_2pd__controller_8h.html" title="PD position controller header file." alt="" coords="466,98,584,126"/>
-<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="368,48,479,92,474,92,367,53"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="120,124,203,165,198,168,119,129"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="242,124,242,159,238,157,238,128"/>
-<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="278,124,406,169,400,169,277,129"/>
-<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="360,126,279,169,278,164,354,127"/>
-<area shape="poly" id="edge10_Node000006_Node000003" title=" " alt="" coords="396,124,433,163,428,162,394,129"/>
-<area shape="poly" id="edge12_Node000007_Node000002" title=" " alt="" coords="477,126,295,175,294,169,471,126"/>
-<area shape="poly" id="edge13_Node000007_Node000003" title=" " alt="" coords="515,125,478,165,475,160,510,127"/>
+<area shape="rect" id="Node000001" title="Control system header file." alt="" coords="312,5,500,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="296,174,377,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,37,281,47,251,59,224,77,202,99,196,112,197,122,203,133,214,142,245,159,284,174,278,173,243,164,211,146,199,136,192,124,191,111,197,97,220,72,248,55,279,42,314,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="514,174,584,201"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="501,31,577,39,655,51,722,70,747,82,764,96,774,118,770,136,753,150,728,162,664,177,600,185,599,180,663,172,726,157,750,146,765,133,769,118,760,100,744,86,720,75,654,57,576,44,501,37"/>
+<area shape="rect" id="Node000004" href="$encoder__driver_8h.html" title="Header file for the encoder driver module." alt="" coords="5,98,135,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="316,53,139,96,138,91,318,48"/>
+<area shape="rect" id="Node000005" href="$motor__driver_8h.html" title="Header file for the motor driver module. This module provides functions to initialize and control the..." alt="" coords="348,98,464,126"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="408,48,408,84,404,81,404,52"/>
+<area shape="rect" id="Node000006" href="$lib_2control__system_2include_2motor__model_8h.html" title="Motor model header file." alt="" coords="488,98,609,126"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="444,48,516,90,510,90,443,53"/>
+<area shape="rect" id="Node000007" href="$lib_2control__system_2include_2pd__controller_8h.html" title="PD position controller header file." alt="" coords="633,98,750,126"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="482,48,634,93,628,94,481,53"/>
+<area shape="rect" id="Node000008" href="$lib_2control__system_2include_2pi__controller_8h.html" title="PI velocity controller header file." alt="" coords="211,98,324,126"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="372,50,304,92,301,87,367,52"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="118,124,283,169,280,173,117,129"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="396,125,361,164,358,160,391,127"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="432,124,513,167,507,166,431,129"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="513,126,390,171,388,166,508,127"/>
+<area shape="poly" id="edge10_Node000006_Node000003" title=" " alt="" coords="551,124,551,160,547,156,547,128"/>
+<area shape="poly" id="edge12_Node000007_Node000002" title=" " alt="" coords="635,125,392,177,391,172,630,125"/>
+<area shape="poly" id="edge13_Node000007_Node000003" title=" " alt="" coords="668,126,588,169,587,164,663,127"/>
+<area shape="poly" id="edge15_Node000008_Node000002" title=" " alt="" coords="281,124,316,163,311,162,279,129"/>
+<area shape="poly" id="edge16_Node000008_Node000003" title=" " alt="" coords="318,124,501,173,496,174,317,129"/>
 </map>
