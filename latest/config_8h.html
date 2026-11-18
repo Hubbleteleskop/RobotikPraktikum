@@ -165,6 +165,8 @@ Macros</h2></td></tr>
 <tr class="memitem:a45fe28e59a4973d7bd004a125429405e" id="r_a45fe28e59a4973d7bd004a125429405e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a45fe28e59a4973d7bd004a125429405e">MOTOR_R_MAX_VELOCITY</a>&#160;&#160;&#160;(6700.0f/60.0f * 2.0f * 3.14159f)</td></tr>
 <tr class="memitem:a713c7b3d0c803b181702226e1ff564f8" id="r_a713c7b3d0c803b181702226e1ff564f8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a713c7b3d0c803b181702226e1ff564f8">MOTOR_L_INVERT_DIRECTION</a>&#160;&#160;&#160;true</td></tr>
 <tr class="memitem:afa139847de26c35411263e006ee448d6" id="r_afa139847de26c35411263e006ee448d6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afa139847de26c35411263e006ee448d6">MOTOR_R_INVERT_DIRECTION</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memitem:a389e1a8efc39cf115b6cdff71c3bd50b" id="r_a389e1a8efc39cf115b6cdff71c3bd50b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a389e1a8efc39cf115b6cdff71c3bd50b">MOTOR_L_WHEEL_RADIUS</a>&#160;&#160;&#160;0.04f</td></tr>
+<tr class="memitem:a87139ffda060be638af8b13f5bcd5895" id="r_a87139ffda060be638af8b13f5bcd5895"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a87139ffda060be638af8b13f5bcd5895">MOTOR_R_WHEEL_RADIUS</a>&#160;&#160;&#160;0.04f</td></tr>
 <tr class="memitem:a4c58540113f2dee38f827f0c86a529f3" id="r_a4c58540113f2dee38f827f0c86a529f3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4c58540113f2dee38f827f0c86a529f3">MOTOR_J</a>&#160;&#160;&#160;0.000000068f</td></tr>
 <tr class="memitem:ae8efc2e2eb7df26bdda27ab12d10e2b7" id="r_ae8efc2e2eb7df26bdda27ab12d10e2b7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae8efc2e2eb7df26bdda27ab12d10e2b7">MOTOR_J_RED</a>&#160;&#160;&#160;(<a class="el" href="#a4c58540113f2dee38f827f0c86a529f3">MOTOR_J</a> * (<a class="el" href="#a41b666b6563935671bdc74c22b3ef2e7">MOTOR_L_TRANSMISSION_RATIO</a> * <a class="el" href="#a41b666b6563935671bdc74c22b3ef2e7">MOTOR_L_TRANSMISSION_RATIO</a>))</td></tr>
 <tr class="memitem:acfe3806ea78c10d97a0c9caa118ff7a8" id="r_acfe3806ea78c10d97a0c9caa118ff7a8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#acfe3806ea78c10d97a0c9caa118ff7a8">PD_CONTROLLER_D</a>&#160;&#160;&#160;0.7f</td></tr>
@@ -178,6 +180,8 @@ Macros</h2></td></tr>
 <tr class="memitem:a24674936431ab24912de9fa48fd6e54b" id="r_a24674936431ab24912de9fa48fd6e54b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a24674936431ab24912de9fa48fd6e54b">PI_CONTROLLER_KI</a>&#160;&#160;&#160;<a class="el" href="#a3c8c4ce365d94b966e5b026aca2af1dc">PD_CONTROLLER_KP</a></td></tr>
 <tr class="memitem:a6cbdc68d5b4d34d5b7e20557a0c14649" id="r_a6cbdc68d5b4d34d5b7e20557a0c14649"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6cbdc68d5b4d34d5b7e20557a0c14649">PI_CONTROLLER_INTEGRAL_LIMIT</a>&#160;&#160;&#160;0.1f</td></tr>
 <tr class="memitem:aaf363c4643cec0094efc31087b755182" id="r_aaf363c4643cec0094efc31087b755182"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aaf363c4643cec0094efc31087b755182">PI_CONTROLLER_DIM</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:a81b6e5c4e6baad41ab0f69132c3a90c6" id="r_a81b6e5c4e6baad41ab0f69132c3a90c6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a81b6e5c4e6baad41ab0f69132c3a90c6">KINEMATICS_DT</a>&#160;&#160;&#160;((float)<a class="el" href="#a0e3cc4a366ffb5700421398683f33a60">CONTROL_SYSTEM_TASK_PERIOD_MS</a> / 1000.0f)</td></tr>
+<tr class="memitem:a816e18fb2b1960f9cc08514777d7901e" id="r_a816e18fb2b1960f9cc08514777d7901e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a816e18fb2b1960f9cc08514777d7901e">KINEMATICS_WHEEL_DISTANCE</a>&#160;&#160;&#160;0.15f</td></tr>
 <tr class="memitem:a0e3cc4a366ffb5700421398683f33a60" id="r_a0e3cc4a366ffb5700421398683f33a60"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0e3cc4a366ffb5700421398683f33a60">CONTROL_SYSTEM_TASK_PERIOD_MS</a>&#160;&#160;&#160;5</td></tr>
 <tr class="memitem:ab261af5cc162e1530abc121e3c5595f6" id="r_ab261af5cc162e1530abc121e3c5595f6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab261af5cc162e1530abc121e3c5595f6">CONTROL_SYSTEM_TASK_PERIOD_S</a>&#160;&#160;&#160;((float)<a class="el" href="#a0e3cc4a366ffb5700421398683f33a60">CONTROL_SYSTEM_TASK_PERIOD_MS</a> / 1000.0f)</td></tr>
 <tr class="memitem:a74311650343a51ff29124bf2c7739898" id="r_a74311650343a51ff29124bf2c7739898"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a74311650343a51ff29124bf2c7739898">CONTROL_SYSTEM_TASK_FREQUENCY_HZ</a>&#160;&#160;&#160;(1.0f / (float)<a class="el" href="#ab261af5cc162e1530abc121e3c5595f6">CONTROL_SYSTEM_TASK_PERIOD_S</a>)</td></tr>
@@ -286,6 +290,36 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>GPIO pin for I2C master SDA </p>
+
+</div>
+</div>
+<a id="a81b6e5c4e6baad41ab0f69132c3a90c6" name="a81b6e5c4e6baad41ab0f69132c3a90c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b6e5c4e6baad41ab0f69132c3a90c6">&#9670;&#160;</a></span>KINEMATICS_DT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define KINEMATICS_DT&#160;&#160;&#160;((float)<a class="el" href="#a0e3cc4a366ffb5700421398683f33a60">CONTROL_SYSTEM_TASK_PERIOD_MS</a> / 1000.0f)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Control system period [s] </p>
+
+</div>
+</div>
+<a id="a816e18fb2b1960f9cc08514777d7901e" name="a816e18fb2b1960f9cc08514777d7901e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a816e18fb2b1960f9cc08514777d7901e">&#9670;&#160;</a></span>KINEMATICS_WHEEL_DISTANCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define KINEMATICS_WHEEL_DISTANCE&#160;&#160;&#160;0.15f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Distance between the wheels [m] </p>
 
 </div>
 </div>
@@ -469,6 +503,21 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a389e1a8efc39cf115b6cdff71c3bd50b" name="a389e1a8efc39cf115b6cdff71c3bd50b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a389e1a8efc39cf115b6cdff71c3bd50b">&#9670;&#160;</a></span>MOTOR_L_WHEEL_RADIUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_L_WHEEL_RADIUS&#160;&#160;&#160;0.04f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Wheel radius for the left motor [m] </p>
+
+</div>
+</div>
 <a id="aeb5ef413dd795d8586faeeed88d381db" name="aeb5ef413dd795d8586faeeed88d381db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb5ef413dd795d8586faeeed88d381db">&#9670;&#160;</a></span>MOTOR_MODEL_NR_OF_MOTORS</h2>
 
@@ -571,6 +620,21 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Transmission ratio for the right motor </p>
+
+</div>
+</div>
+<a id="a87139ffda060be638af8b13f5bcd5895" name="a87139ffda060be638af8b13f5bcd5895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87139ffda060be638af8b13f5bcd5895">&#9670;&#160;</a></span>MOTOR_R_WHEEL_RADIUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_R_WHEEL_RADIUS&#160;&#160;&#160;0.04f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Wheel radius for the right motor [m] </p>
 
 </div>
 </div>
