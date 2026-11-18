@@ -53,6 +53,7 @@ esp_err_t control_system_init(const control_system_config_t *config)
     ESP_ERROR_CHECK(motor_driver_init(&cfg.motor_driver_config));
     ESP_ERROR_CHECK(motor_model_init(&cfg.motor_model_config));
     ESP_ERROR_CHECK(pd_controller_init(&cfg.pd_controller_config));
+    ESP_ERROR_CHECK(pi_controller_init(&cfg.pi_controller_config));
 
 
     // Set the control system initialized bit in the event group
@@ -91,6 +92,9 @@ void control_system_task(void *arg)
     float U[2] = {0.0f, 0.0f}; // Motorspannungen
     float Q[2] = {0.005f, 0.005f}; // Soll Drehmoment
     float q_soll[2] = {0.0f, 0.0f}; // Soll Gelenkpositionen
+    float qd_soll[2] = {0.0f, 0.0f}; // Soll Gelenkgeschwindigkeiten
+    float max_qd = cfg.motor_model_config.params[1].max_velocity; // Maximale Geschwindigkeit für die Gelenke (rad/s)
+    float transmission_ratio = cfg.motor_model_config.params[1].transmission_ratio; // Übersetzungsverhältnis für die Gelenke
     TickType_t last_wake = xTaskGetTickCount();
     while (!safety_system_is_shutting_down())
     {
@@ -148,7 +152,7 @@ void control_system_task(void *arg)
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
         */
-
+        /* Praktikum 3 Aufgabe 1
         encoder_driver_get_angles(shaft_angles);
 
         motor_model_calc_q(shaft_angles, q);
@@ -163,6 +167,27 @@ void control_system_task(void *arg)
 
         udp_interface_add_control_sample(q[0], q[1]);
         ESP_LOGI(TAG, "Q = [%.3f, %.3f] Nm", Q[0], Q[1]);
+
+        // Wait for the next cycle
+        xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
+        */
+
+        encoder_driver_get_angles(shaft_angles);
+
+        motor_model_calc_q(shaft_angles, q);
+        motor_model_calc_qd(q, qd);
+
+        qd_soll[1] = q[0] * max_qd /(2.0f * M_PI * transmission_ratio); // Set the desired velocity for the second joint based on the first joint's position
+        qd_soll[0] = qd[0];
+
+
+        pi_controller_calc_Q(qd, qd_soll, Q);
+        motor_model_calc_voltage(Q, qd, U);
+        motor_driver_set_voltage(U);
+
+
+        udp_interface_add_control_sample(q[0], q[1]);
+        ESP_LOGI(TAG, "Q = [%.3f, %.3f] Nm", q[0], qd[1]);
 
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));

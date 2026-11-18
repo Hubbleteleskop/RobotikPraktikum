@@ -64,6 +64,13 @@
 #define PD_CONTROLLER_KD (2.0f * PD_CONTROLLER_D * PD_CONTROLLER_OMEGA_0) /**< Derivative gain for the PD controller [1/s] */
 #define PD_CONTROLLER_DIM 2 /**< Dimension of the input signal for the PD controller (e.g., 1 for scalar, 2 for vector) */
 
+// PI controller configuration constants
+#define PI_CONTROLLER_DT ((float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f)
+#define PI_CONTROLLER_KP PD_CONTROLLER_KD /**< Proportional gain for the PI controller [1/s] */
+#define PI_CONTROLLER_KI PD_CONTROLLER_KP /**< Integral gain for the PI controller [1/s^2] */
+#define PI_CONTROLLER_INTEGRAL_LIMIT 0.1f /**< Limit for the integral term in the PI controller [rad/s] */
+#define PI_CONTROLLER_DIM 2 /**< Dimension of the input signal for the PI controller (e.g., 1 for scalar, 2 for vector) */
+
 // Control system configuration constants
 #define CONTROL_SYSTEM_TASK_PERIOD_MS 5                                               /**< Control system task period [ms] */
 #define CONTROL_SYSTEM_TASK_PERIOD_S ((float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f) /**< Control system task period [s] */

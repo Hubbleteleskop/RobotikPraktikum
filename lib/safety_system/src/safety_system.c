@@ -16,6 +16,7 @@
 #include <esp_log.h>
 #include <esp_sleep.h>
 #include <stdatomic.h>
+#include <pi_controller.h>
 
 static const char *TAG = "Safety System"; /**< Tag for logging purposes */
 
@@ -330,14 +331,17 @@ void safety_system_task(void *pvParameters)
         {
         case SL_OFF:
             motor_driver_set_state(MOTORS_DISABLED);
+            pi_controller_disable_integrator();
             // Enter deep sleep mode
             esp_deep_sleep_start();
             break;
         case SL_INITIALIZING:
             motor_driver_set_state(MOTORS_DISABLED);
+            pi_controller_disable_integrator();
             break;
         case SL_SHUTTING_DOWN:
             motor_driver_set_state(MOTORS_DISABLED);
+            pi_controller_disable_integrator();
             // Signal all tasks to shutdown
             xEventGroupSetBits(safety_event_group, SHUTTING_DOWN_BIT);
             // Wait for all tasks to acknowledge shutdown
@@ -348,12 +352,15 @@ void safety_system_task(void *pvParameters)
             break;
         case SL_EMERGENCY:
             motor_driver_set_state(MOTORS_DISABLED);
+            pi_controller_disable_integrator(); 
             break;
         case SL_READY:
             motor_driver_set_state(MOTORS_DISABLED);
+            pi_controller_disable_integrator(); 
             break;
         case SL_ACTIVE:
             motor_driver_set_state(MOTORS_ENABLED);
+            pi_controller_enable_integrator(); 
             break;
         default:
             break;

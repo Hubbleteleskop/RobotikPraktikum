@@ -86,6 +86,11 @@ void app_main()
         MOTOR_J_RED, 0.0f,
         0.0f, MOTOR_J_RED
     };
+
+    static const float PI_CONTROLLER_M[PI_CONTROLLER_DIM * PI_CONTROLLER_DIM] = {
+        MOTOR_J_RED, 0.0f,
+        0.0f, MOTOR_J_RED
+    };
     
 
     const control_system_config_t control_config = {
@@ -111,6 +116,14 @@ void app_main()
             .kd = PD_CONTROLLER_KD,
             .M = PD_CONTROLLER_M,
             .dim = PD_CONTROLLER_DIM,
+        },
+        .pi_controller_config = {
+            .dt = PI_CONTROLLER_DT,
+            .kp = PI_CONTROLLER_KP,
+            .ki = PI_CONTROLLER_KI,
+            .integral_limit = PI_CONTROLLER_INTEGRAL_LIMIT,
+            .M = PI_CONTROLLER_M,
+            .dim = PI_CONTROLLER_DIM,
         }
     };
     ESP_ERROR_CHECK(control_system_init(&control_config));
