@@ -22,6 +22,7 @@ typedef struct
     float max_torque_intermittent; /**< Maximum intermittent input shaft torque [Nm] */
     float max_velocity;            /**< Maximum input shaft velocity [rad/s] */
     bool invert_direction;         /**< Flag to indicate if the motor direction should be inverted */
+    float wheel_radius;            /**< Wheel radius [m] */
 } motor_model_params_t;
 
 /**

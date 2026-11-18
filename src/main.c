@@ -71,6 +71,7 @@ void app_main()
             .max_torque_intermittent = MOTOR_L_MAX_TORQUE_INTERMITTENT,
             .max_velocity = MOTOR_L_MAX_VELOCITY,
             .invert_direction = MOTOR_L_INVERT_DIRECTION,
+            .wheel_radius = MOTOR_L_WHEEL_RADIUS
         },
         {
             .transmission_ratio = MOTOR_R_TRANSMISSION_RATIO,
@@ -79,6 +80,7 @@ void app_main()
             .max_torque_intermittent = MOTOR_R_MAX_TORQUE_INTERMITTENT,
             .max_velocity = MOTOR_R_MAX_VELOCITY,
             .invert_direction = MOTOR_R_INVERT_DIRECTION,
+            .wheel_radius = MOTOR_R_WHEEL_RADIUS
         }
     };
 
@@ -124,6 +126,10 @@ void app_main()
             .integral_limit = PI_CONTROLLER_INTEGRAL_LIMIT,
             .M = PI_CONTROLLER_M,
             .dim = PI_CONTROLLER_DIM,
+        },
+        .kinematics_config = {
+            .dt = KINEMATICS_DT,
+            .wheel_distance = KINEMATICS_WHEEL_DISTANCE,
         }
     };
     ESP_ERROR_CHECK(control_system_init(&control_config));

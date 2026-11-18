@@ -79,8 +79,8 @@ void motor_model_calc_q(const float *shaft_angles, float *q)
             direction = 1.0f;
         }
 
-        // Gelenkposition = Motorshaftwinkel / Übersetzungsverhältnis
-        q[i] = direction * shaft_angles[i] / cfg.params[i].transmission_ratio;
+        // Gelenkposition = Motorshaftwinkel / Übersetzungsverhältnis * Radius des Rades
+        q[i] = (direction * shaft_angles[i] / cfg.params[i].transmission_ratio)*cfg.params[i].wheel_radius;
         //q[i] = shaft_angles[i];
     }
 }

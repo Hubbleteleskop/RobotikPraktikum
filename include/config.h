@@ -52,6 +52,8 @@
 #define MOTOR_R_MAX_VELOCITY (6700.0f/60.0f * 2.0f * 3.14159f) /**< Maximum velocity for the right motor [rad/s] */
 #define MOTOR_L_INVERT_DIRECTION true /**< Invert direction for the left motor */
 #define MOTOR_R_INVERT_DIRECTION false /**< Invert direction for the right motor */
+#define MOTOR_L_WHEEL_RADIUS 0.04f /**< Wheel radius for the left motor [m] */
+#define MOTOR_R_WHEEL_RADIUS 0.04f /**< Wheel radius for the right motor [m] */
 
 // PD controller configuration constants
 #define MOTOR_J 0.000000068f /**< Motor inertia [kg*m^2] */
@@ -70,6 +72,10 @@
 #define PI_CONTROLLER_KI PD_CONTROLLER_KP /**< Integral gain for the PI controller [1/s^2] */
 #define PI_CONTROLLER_INTEGRAL_LIMIT 0.1f /**< Limit for the integral term in the PI controller [rad/s] */
 #define PI_CONTROLLER_DIM 2 /**< Dimension of the input signal for the PI controller (e.g., 1 for scalar, 2 for vector) */
+
+// Kinematics configuration constants
+#define KINEMATICS_DT ((float)CONTROL_SYSTEM_TASK_PERIOD_MS / 1000.0f) /**< Control system period [s] */
+#define KINEMATICS_WHEEL_DISTANCE 0.15f /**< Distance between the wheels [m] */
 
 // Control system configuration constants
 #define CONTROL_SYSTEM_TASK_PERIOD_MS 5                                               /**< Control system task period [ms] */

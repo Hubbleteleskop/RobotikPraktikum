@@ -30,6 +30,7 @@
 #include "motor_model.h"
 #include "pd_controller.h"
 #include "pi_controller.h"
+#include "kinematics.h"
 
 /* Add other necessary includes here */
 
@@ -44,6 +45,7 @@ typedef struct
     motor_model_config_t motor_model_config;   /**< Configuration for the motor model */
     pd_controller_config_t pd_controller_config; /**< Configuration for the PD controller */
     pi_controller_config_t pi_controller_config; /**< Configuration for the PI controller */
+    kinematics_config_t kinematics_config;     /**< Configuration for the kinematics module */
     /* Add other configuration structures here */
 } control_system_config_t;
 

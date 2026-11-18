@@ -54,6 +54,7 @@ esp_err_t control_system_init(const control_system_config_t *config)
     ESP_ERROR_CHECK(motor_model_init(&cfg.motor_model_config));
     ESP_ERROR_CHECK(pd_controller_init(&cfg.pd_controller_config));
     ESP_ERROR_CHECK(pi_controller_init(&cfg.pi_controller_config));
+    ESP_ERROR_CHECK(kinematics_init(&cfg.kinematics_config));
 
 
     // Set the control system initialized bit in the event group
@@ -62,7 +63,7 @@ esp_err_t control_system_init(const control_system_config_t *config)
     return ESP_OK;
 }
     
-
+/*
 //Hilfsfunktion für die Dreiecksfunktion / Periodische Dreiecksfunktion (normiert auf Periode 1, Wertebereich 0 bis 1)
 static float triangle_function(float x)
 {
@@ -73,6 +74,7 @@ static float triangle_function(float x)
     }
     return 2.0f * fabsf(wrapped - 0.5f); // Triangle wave formula
 }
+*/
 
 void control_system_task(void *arg)
 {
@@ -89,12 +91,14 @@ void control_system_task(void *arg)
     //float dt = (float)cfg.task_period_ms / 1000.0f; // Zeitschritt pro Regeltakt (z.b. 0.1s bei 100ms)
     float q[2] = {0.0f, 0.0f}; // Gelenkpositionen
     float qd[2] = {0.0f, 0.0f}; // Gelenkgeschwindigkeiten
-    float U[2] = {0.0f, 0.0f}; // Motorspannungen
-    float Q[2] = {0.005f, 0.005f}; // Soll Drehmoment
-    float q_soll[2] = {0.0f, 0.0f}; // Soll Gelenkpositionen
-    float qd_soll[2] = {0.0f, 0.0f}; // Soll Gelenkgeschwindigkeiten
-    float max_qd = cfg.motor_model_config.params[1].max_velocity; // Maximale Geschwindigkeit für die Gelenke (rad/s)
-    float transmission_ratio = cfg.motor_model_config.params[1].transmission_ratio; // Übersetzungsverhältnis für die Gelenke
+    //float U[2] = {0.0f, 0.0f}; // Motorspannungen
+    //float Q[2] = {0.005f, 0.005f}; // Soll Drehmoment
+    //float q_soll[2] = {0.0f, 0.0f}; // Soll Gelenkpositionen
+    //float qd_soll[2] = {0.0f, 0.0f}; // Soll Gelenkgeschwindigkeiten
+    //float max_qd = cfg.motor_model_config.params[1].max_velocity; // Maximale Geschwindigkeit für die Gelenke (rad/s)
+    //float transmission_ratio = cfg.motor_model_config.params[1].transmission_ratio; // Übersetzungsverhältnis für die Gelenke
+    float q_global[3] = {0.0f, 0.0f, 0.0f}; // Globale Position des Roboters (x, y, phi)
+    float qd_global[3] = {0.0f, 0.0f, 0.0f}; // Globale Geschwindigkeit des Roboters (vx, vy, omega)
     TickType_t last_wake = xTaskGetTickCount();
     while (!safety_system_is_shutting_down())
     {
@@ -171,7 +175,7 @@ void control_system_task(void *arg)
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
         */
-
+        /* Praktikum 3 Aufgabe 2
         encoder_driver_get_angles(shaft_angles);
 
         motor_model_calc_q(shaft_angles, q);
@@ -191,6 +195,25 @@ void control_system_task(void *arg)
 
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
+        */
+        
+        encoder_driver_get_angles(shaft_angles);
+
+        motor_model_calc_q(shaft_angles, q);
+        motor_model_calc_qd(q, qd);
+        //motor_model_calc_voltage(Q, qd, U);
+        //motor_driver_set_voltage(U);
+
+        kinematics_calc_fw_kin_odom(qd, q_global, qd_global);
+
+
+        udp_interface_add_control_sample(q_global[0], q_global[1]);
+        ESP_LOGI(TAG, "q_global = [%.3f, %.3f, %.3f] m, m, rad", q_global[0], q_global[1], q_global[2]);
+        //ESP_LOGI(TAG, "qd_global = [%.3f, %.3f, %.3f] m/s, m/s, rad/s", qd_global[0], qd_global[1], qd_global[2]);
+
+        // Wait for the next cycle
+        xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
+
 
     }
 
