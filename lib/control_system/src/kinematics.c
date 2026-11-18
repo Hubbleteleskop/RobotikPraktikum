@@ -53,5 +53,8 @@ void kinematics_calc_fw_kin_odom(const float qd[2], float xi[3], float xid[3])
 
 void kinematics_calc_inv_kin(const float xid_d[3], float qd_d[2])
 {
-    /* TO DO */
+    // Radius Wheels = 0.04 m
+    qd_d[0] = (xid_d[0] - cfg.wheel_distance * xid_d[2] * 0.5f); // vx - omega * wheel_distance / 2
+    qd_d[1] = (xid_d[0] + cfg.wheel_distance * xid_d[2] * 0.5f); // vx + omega * wheel_distance / 2
+
 }

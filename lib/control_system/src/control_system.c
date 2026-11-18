@@ -91,14 +91,15 @@ void control_system_task(void *arg)
     //float dt = (float)cfg.task_period_ms / 1000.0f; // Zeitschritt pro Regeltakt (z.b. 0.1s bei 100ms)
     float q[2] = {0.0f, 0.0f}; // Gelenkpositionen
     float qd[2] = {0.0f, 0.0f}; // Gelenkgeschwindigkeiten
-    //float U[2] = {0.0f, 0.0f}; // Motorspannungen
-    //float Q[2] = {0.005f, 0.005f}; // Soll Drehmoment
+    float U[2] = {0.0f, 0.0f}; // Motorspannungen
+    float Q[2] = {0.0f, 0.0f}; // Soll Drehmoment
     //float q_soll[2] = {0.0f, 0.0f}; // Soll Gelenkpositionen
-    //float qd_soll[2] = {0.0f, 0.0f}; // Soll Gelenkgeschwindigkeiten
+    float qd_soll[2] = {0.0f, 0.0f}; // Soll Gelenkgeschwindigkeiten
     //float max_qd = cfg.motor_model_config.params[1].max_velocity; // Maximale Geschwindigkeit für die Gelenke (rad/s)
     //float transmission_ratio = cfg.motor_model_config.params[1].transmission_ratio; // Übersetzungsverhältnis für die Gelenke
     float q_global[3] = {0.0f, 0.0f, 0.0f}; // Globale Position des Roboters (x, y, phi)
-    float qd_global[3] = {0.0f, 0.0f, 0.0f}; // Globale Geschwindigkeit des Roboters (vx, vy, omega)
+    //float qd_global[3] = {0.0f, 0.0f, 0.0f}; // Globale Geschwindigkeit des Roboters (vx, vy, omega)
+    float xid_soll_robot[3] = {0.0f, 0.0f, 1.047f}; // Soll Geschwindigkeit des Roboters im Roboterkoordinatensystem (vx, vy, omega)
     TickType_t last_wake = xTaskGetTickCount();
     while (!safety_system_is_shutting_down())
     {
@@ -197,6 +198,7 @@ void control_system_task(void *arg)
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
         */
         
+        /* Praktikum 4 Aufgabe 1
         encoder_driver_get_angles(shaft_angles);
 
         motor_model_calc_q(shaft_angles, q);
@@ -213,7 +215,24 @@ void control_system_task(void *arg)
 
         // Wait for the next cycle
         xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
+        */
+        
+        encoder_driver_get_angles(shaft_angles);
+        motor_model_calc_q(shaft_angles, q);
+        motor_model_calc_qd(q, qd);
 
+        kinematics_calc_inv_kin(xid_soll_robot, qd_soll);
+        pi_controller_calc_Q(qd, qd_soll, Q);
+        motor_model_calc_voltage(Q, qd, U);
+        motor_driver_set_voltage(U);
+
+        udp_interface_add_control_sample(q_global[0], q_global[1]);
+        // LOGI nicht einschalten... sonst hackt der Motor
+        //ESP_LOGI(TAG, "qd_soll = [%.3f, %.3f] m/s, m/s", q[0], q[1]);
+        //ESP_LOGI(TAG, "qd_global = [%.3f, %.3f, %.3f] m/s, m/s, rad/s", qd_global[0], qd_global[1], qd_global[2]);
+
+        // Wait for the next cycle
+        xTaskDelayUntil(&last_wake, pdMS_TO_TICKS(cfg.task_period_ms));
 
     }
 

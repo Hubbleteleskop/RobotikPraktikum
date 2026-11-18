@@ -104,6 +104,14 @@ void motor_model_calc_voltage(const float *Q, const float *qd, float *U)
             direction = 1.0f;
         }
         // U = R*I + k_M*omega, I=Q/k_M, omega=qd
-        U[i] = direction * (cfg.params[i].armature_resistance * (Q[i] / (cfg.params[i].motor_constant*cfg.params[i].transmission_ratio)) + cfg.params[i].motor_constant * qd[i]*cfg.params[i].transmission_ratio);
+        float R = cfg.params[i].armature_resistance;
+        float k_M = cfg.params[i].motor_constant;
+        float transmission_ratio = cfg.params[i].transmission_ratio;
+        float wheel_radius = cfg.params[i].wheel_radius;
+        float I = Q[i] / wheel_radius / (k_M*transmission_ratio);
+        float omega = (qd[i]/wheel_radius)*transmission_ratio;
+        
+        U[i] = direction * (R * I + k_M * omega);
+        //U[i] = direction * (cfg.params[i].armature_resistance * (Q[i] / (cfg.params[i].motor_constant*cfg.params[i].transmission_ratio*cfg.params[i].wheel_radius)) + (cfg.params[i].motor_constant * qd[i]*cfg.params[i].transmission_ratio)/cfg.params[i].wheel_radius);
     }
 }
